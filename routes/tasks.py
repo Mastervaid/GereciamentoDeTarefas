@@ -28,14 +28,11 @@ def create_task():
             "status": new_task.status 
         }), 200
 
-
 #return all tasks
 @tasks_bp.route("/tasks", methods=['GET'])
 def return_tasks():
     tasks = Task.query.all()
     return jsonify([{"id": task.id, "title": task.title, "description": task.description, "date": task.date, "status": task.status} for task in tasks]) 
-
-
 
 #delete task
 @tasks_bp.route("/task/<int:task_id>", methods=['DELETE'])
