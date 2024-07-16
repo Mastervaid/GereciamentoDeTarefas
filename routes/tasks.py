@@ -21,6 +21,7 @@ def create_task():
     return jsonify(
         {
             "mensage": "created task sucessful!",
+            "id": new_task.id,
             "title": new_task.title, 
             "description": new_task.description, 
             "date": new_task.date, 
@@ -32,7 +33,7 @@ def create_task():
 @tasks_bp.route("/tasks", methods=['GET'])
 def return_tasks():
     tasks = Task.query.all()
-    return jsonify([{"title": task.title, "description": task.description, "date": task.date, "status": task.status} for task in tasks]) 
+    return jsonify([{"id": task.id, "title": task.title, "description": task.description, "date": task.date, "status": task.status} for task in tasks]) 
 
 
 
@@ -47,4 +48,3 @@ def delete_task(task_id):
         return jsonify({"message": "Task delete with sucessfull!"})
     else:
         return jsonify({"message": "Not found task!"})
-
