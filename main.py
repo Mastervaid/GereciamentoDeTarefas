@@ -1,13 +1,11 @@
 from flask import Flask
 from config import Config
-from routes import users_bp
+from routes.users import users_bp
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from models import db
 from models.user import User 
 from routes.tasks import tasks_bp
-from flask_sqlachamy import SQLAlchemy
-from flask_bcypt import Bcrypt
 from flask_login import LoginManager
 
 app = Flask(__name__)
