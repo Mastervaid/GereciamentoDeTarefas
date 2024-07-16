@@ -3,6 +3,9 @@ from config import Config
 from models import db  
 from routes.tasks import tasks_bp
 
+from flask_sqlachamy import SQLAlchemy
+from flask_bcypt import Bcrypt
+from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config.from_object(Config)
